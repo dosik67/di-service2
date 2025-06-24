@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессиональный ремонт кондиционеров, бойлеров и котлов в Алматы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+         :root {
+            --primary: #0d6efd;
+            --secondary: #198754;
+            --accent: #ffc107;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --danger: #dc3545;
+            --success: #28a745;
+            --gray: #6c757d;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #333;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding-top: 70px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-menu li {
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1.2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:hover {
+            color: #0d6efd;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(248, 248, 248, 0.7));
+            z-index: -1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://topclim.ru/upload/resize_cache/webp/iblock/0a2/0a2f27b335ef720441b52b24eab08b62.web');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            animation: backgroundAnimation 30s infinite alternate ease-in-out;
+            opacity: 0.5;
+        }
+        
+        @keyframes backgroundAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #333, #0d6efd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(25, 135, 84, 0.1));
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+            color: #0d6efd;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(13, 110, 253, 0.4);
+        }
+        
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .equipment-card {
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(13, 110, 253, 0.2);
+        }
+        
+        .equipment-icon {
+            font-size: 3rem;
+            margin-right: 1.5rem;
+            color: #0d6efd;
+        }
+        
+        .equipment-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .equipment-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .services {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(135deg, #333, #0d6efd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: -1.5rem auto 3rem;
+            font-weight: 500;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(13, 110, 253, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            transition: left 0.4s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(13, 110, 253, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: #0d6efd;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-features li i {
+            color: #198754;
+        }
+        
+        .pricing {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(13, 110, 253, 0.03) 100%);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+        
+        .price-card {
+            background: white;
+            padding: 2.5rem 1.8rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            transition: left 0.4s ease;
+        }
+        
+        .price-card:hover::before {
+            left: 0;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(13, 110, 253, 0.2);
+            border-color: rgba(13, 110, 253, 0.2);
+        }
+        
+        .price-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .price-unit {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: #198754;
+            font-weight: 600;
+            margin: -1rem 0 1.5rem;
+            padding: 0.5rem;
+            background: rgba(25, 135, 84, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 500;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li::before {
+            content: '✓';
+            color: #198754;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .testimonials {
+            padding: 4rem 0;
+            background: #f8f8f8;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: -1rem;
+            left: 1.5rem;
+            color: rgba(13, 110, 253, 0.2);
+            font-weight: 900;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(13, 110, 253, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .testimonial-role {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+        
+        .process {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            counter-reset: step;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(13, 110, 253, 0.1);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(13, 110, 253, 0.1);
+        }
+        
+        .step-card::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: #0d6efd;
+            margin: 1.5rem 0;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .contact {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f8f8, #ffffff);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #333, #0d6efd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
+            background: #f8f8f8;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .contact-item:hover::before {
+            left: 100%;
+        }
+        
+        .contact-item:hover {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(25, 135, 84, 0.1));
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(13, 110, 253, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 1.4rem;
+            margin-right: 1rem;
+            color: #0d6efd;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid rgba(13, 110, 253, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1.8rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0d6efd, #198754);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .quick-actions {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-actions.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .quick-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .quick-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .quick-btn.phone {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .quick-btn.call {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            color: white;
+        }
+        
+        .quick-btn.top {
+            background: linear-gradient(135deg, #333, #212529);
+            color: white;
+        }
+        
+        .quick-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .quick-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc3545, #bb2d3b);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emergency-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .error {
+            border: 2px solid red !important;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20%,
+            60% {
+                transform: translateX(-5px);
+            }
+            40%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+        
+        .portfolio-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            background: #0f0f15;
+        }
+        
+        .slider-track {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        
+        .slide {
+            position: relative;
+            width: 20%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+        
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.2);
+            filter: brightness(0.4) blur(4px);
+            transition: transform 1.4s, filter 1.4s;
+            z-index: -1;
+        }
+        
+        .slide-content {
+            max-width: 650px;
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            transition-delay: 0.3s;
+        }
+        
+        .slide-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ff5e7d;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slide-desc {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: #e0e0ff;
+        }
+        
+        .slide-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff5e7d, #ff2a5e);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(255, 46, 94, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .slide-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 46, 94, 0.6);
+        }
+        
+        .slide.active .slide-bg {
+            transform: scale(1);
+            filter: brightness(0.7) blur(0);
+        }
+        
+        .slide.active .slide-content {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .slider-pagination {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .pagination-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pagination-dot.active {
+            background: #ff2a5e;
+            transform: scale(1.4);
+        }
+        
+        .slide-counter {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 10;
+        }
+        
+        .slider-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 20;
+        }
+        
+        .loader-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff5e7d, #5e78ff);
+            transition: width 0.5s linear;
+        }
+        
+        .slide-indicator {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content,
+            .contact-content {
+                gap: 2.5rem;
+            }
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            .hero-text p {
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title,
+            .section-subtitle {
+                text-align: center;
+            }
+            .cta-button {
+                display: block;
+                margin: 1.5rem auto 0;
+                text-align: center;
+                max-width: 280px;
+            }
+            .contact-info h2 {
+                text-align: center;
+            }
+            .contact-item {
+                justify-content: center;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .footer-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .portfolio-slider {
+                height: 500px;
+            }
+            .slide-title {
+                font-size: 2rem;
+            }
+            .slide-desc {
+                font-size: 1rem;
+            }
+            .slide-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            .slider-nav,
+            .slider-pagination,
+            .slide-counter,
+            .slide-indicator {
+                transform: scale(0.8);
+            }
+            .slide-indicator {
+                top: 20px;
+                left: 20px;
+            }
+            .slide-counter {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.6rem;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .emergency-banner {
+                font-size: 0.8rem;
+                padding: 8px 0;
+            }
+            .quick-actions {
+                bottom: 15px;
+                right: 15px;
+            }
+            .quick-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            .portfolio-slider {
+                height: 400px;
+            }
+            .slide-title {
+                font-size: 1.5rem;
+            }
+            .slide-content {
+                padding: 0 5%;
+            }
+            .slider-nav,
+            .slider-pagination,
+            .slide-counter,
+            .slide-indicator {
+                transform: scale(0.7);
+            }
+        }
+        
+        .quick-btn.whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .contact-item i.fab.fa-whatsapp {
+            color: #25D366;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="emergency-banner">
+        🚨 СРОЧНЫЙ РЕМОНТ 24/7 • Выезд в течение часа • +7 (727) 123-45-67
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">DI-Service</div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#pricing">Цены</a></li>
+                <li><a href="#process">Как мы работаем</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#pricing">Цены</a></li>
+                <li><a href="#process">Как мы работаем</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Ремонт и заправка кондиционеров, ремонт бойлеров и газовых котлов</h1>
+                    <p>Профессиональный сервис с гарантией качества. Работаем на выезде по всему Алматы.</p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-truck-moving benefit-icon"></i>
+                            <div>Бесплатный выезд и диагностика</div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-tools benefit-icon"></i>
+                            <div>Опытные мастера с оборудованием</div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt benefit-icon"></i>
+                            <div>Гарантия на все виды работ</div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-handshake benefit-icon"></i>
+                            <div>Цена договорная, без скрытых платежей</div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="cta-button">Вызвать мастера</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="equipment-card">
+                        <i class="fas fa-snowflake equipment-icon"></i>
+                        <div class="equipment-info">
+                            <h3>Кондиционеры</h3>
+                            <p>Ремонт, заправка, чистка, обслуживание всех марок</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <i class="fas fa-fire equipment-icon"></i>
+                        <div class="equipment-info">
+                            <h3>Газовые котлы</h3>
+                            <p>Ремонт, настройка, замена деталей, профилактика</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card">
+                        <i class="fas fa-water equipment-icon"></i>
+                        <div class="equipment-info">
+                            <h3>Бойлеры</h3>
+                            <p>Ремонт, замена ТЭНов, устранение протечек</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <div class="portfolio-slider">
+            <div class="slider-loader">
+                <div class="loader-progress" id="loader"></div>
+            </div>
+
+            <div class="slide-indicator" id="slideIndicator"></div>
+
+            <div class="slider-track" id="sliderTrack">
+                <div class="slide active">
+                    <div class="slide-bg" style="background-image: url('/img/1.jpg')"></div>
+                    <div class="slide-content">
+                        <h2 class="slide-title">Опытные мастера </h2>
+                        <p class="slide-desc"> У нас работают профессионалы с многолетним опытом, которые быстро диагностируют и устранят любую неисправность.</p>
+                        <a href="#contact" class="slide-btn">Вызвать мастера</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="slide-bg" style="background-image: url('/img/man-repairs-air-conditioner---2.png')"></div>
+                    <div class="slide-content">
+                        <h2 class="slide-title">Гарантия качества </h2>
+                        <p class="slide-desc"> Мы предоставляем гарантию на все виды ремонта, чтобы вы были уверены в долговечности результата.</p>
+                        <a href="#contact" class="slide-btn">Вызвать мастера</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="slide-bg" style="background-image: url('/img/man-fixing-air-conditioner.png')"></div>
+                    <div class="slide-content">
+                        <h2 class="slide-title">Быстрый выезд </h2>
+                        <p class="slide-desc"> Приедем в удобное для вас время и оперативно решим проблему (возможен срочный ремонт).</p>
+                        <a href="#contact" class="slide-btn">Вызвать мастера</a>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="slide-bg" style="background-image: url('/img/man-repairs-air-conditioner--6.png')"></div>
+                    <div class="slide-content">
+                        <h2 class="slide-title">Честные цены</h2>
+                        <p class="slide-desc">Никаких скрытых платежей, только прозрачные расценки и индивидуальный подход к каждому клиенту.</p>
+                        <a href="#contact" class="slide-btn">Вызвать мастера</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-nav">
+                <div class="nav-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="nav-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="slider-pagination" id="pagination">
+                <div class="pagination-dot active"></div>
+                <div class="pagination-dot"></div>
+                <div class="pagination-dot"></div>
+                <div class="pagination-dot"></div>
+            </div>
+
+            <div class="slide-counter" id="slideCounter">01 / 04</div>
+        </div>
+    </div>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Качественный ремонт и обслуживание климатической техники на дому</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-wind service-icon"></i>
+                    <h3>Ремонт кондиционеров</h3>
+                    <p>Устранение любых неисправностей кондиционеров: от простой чистки до замены компрессора</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Диагностика неисправностей</li>
+                        <li><i class="fas fa-check"></i> Замена компрессора</li>
+                        <li><i class="fas fa-check"></i> Ремонт электроники</li>
+                        <li><i class="fas fa-check"></i> Устранение утечек фреона</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-gas-pump service-icon"></i>
+                    <h3>Заправка кондиционеров</h3>
+                    <p>Профессиональная заправка фреоном всех типов кондиционеров с проверкой герметичности</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Заправка фреоном R22, R410A</li>
+                        <li><i class="fas fa-check"></i> Поиск и устранение утечек</li>
+                        <li><i class="fas fa-check"></i> Вакуумирование системы</li>
+                        <li><i class="fas fa-check"></i> Проверка давления</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-fire service-icon"></i>
+                    <h3>Ремонт газовых котлов</h3>
+                    <p>Устранение неисправностей газовых котлов всех марок и моделей</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Ремонт горелки</li>
+                        <li><i class="fas fa-check"></i> Замена теплообменника</li>
+                        <li><i class="fas fa-check"></i> Настройка автоматики</li>
+                        <li><i class="fas fa-check"></i> Устранение протечек</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-water service-icon"></i>
+                    <h3>Ремонт бойлеров</h3>
+                    <p>Качественный ремонт водонагревателей любой сложности</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Замена ТЭНа</li>
+                        <li><i class="fas fa-check"></i> Замена магниевого анода</li>
+                        <li><i class="fas fa-check"></i> Устранение протечек</li>
+                        <li><i class="fas fa-check"></i> Чистка внутреннего бака</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-broom service-icon"></i>
+                    <h3>Чистка кондиционеров</h3>
+                    <p>Профессиональная чистка внутреннего и внешнего блоков кондиционера</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Чистка фильтров</li>
+                        <li><i class="fas fa-check"></i> Дезинфекция системы</li>
+                        <li><i class="fas fa-check"></i> Чистка дренажа</li>
+                        <li><i class="fas fa-check"></i> Очистка внешнего блока</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-tools service-icon"></i>
+                    <h3>Обслуживание техники</h3>
+                    <p>Профилактическое обслуживание для продления срока службы оборудования</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Комплексная диагностика</li>
+                        <li><i class="fas fa-check"></i> Сезонное обслуживание</li>
+                        <li><i class="fas fa-check"></i> Профилактика неисправностей</li>
+                        <li><i class="fas fa-check"></i> Консультации по эксплуатации</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Наши цены</h2>
+            <p class="section-subtitle">Прозрачное ценообразование с возможностью согласования стоимости</p>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Кондиционеры</h3>
+                    <div class="price"></div>
+                    <div class="price-unit"></div>
+                    <div class="price-note">Цена после диагностики может меняться</div>
+                    <ul class="features">
+                        <li>Диагностика: <strong>Бесплатно</strong></li>
+                        <li>Чистка внутреннего блока: Цена договорная</li>
+                        <li>Заправка фреоном: Цена договорная</li>
+                        <li>Ремонт электроники: Цена договорная</li>
+                        <li>Замена компрессора: Цена договорная</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <h3>Газовые котлы</h3>
+                    <div class="price"></div>
+                    <div class="price-unit"></div>
+                    <div class="price-note">Цена после диагностики может меняться</div>
+                    <ul class="features">
+                        <li>Диагностика: <strong>Бесплатно</strong></li>
+                        <li>Чистка горелки: от Цена договорная</li>
+                        <li>Замена термостата: от Цена договорная</li>
+                        <li>Ремонт автоматики: от Цена договорная</li>
+                        <li>Замена теплообменника: от Цена договорная</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <h3>Бойлеры</h3>
+                    <div class="price"></div>
+                    <div class="price-unit"></div>
+                    <div class="price-note">Цена после диагностики может меняться</div>
+                    <ul class="features">
+                        <li>Диагностика: <strong>Бесплатно</strong></li>
+                        <li>Замена ТЭНа: Цена договорная</li>
+                        <li>Замена магниевого анода: Цена договорная</li>
+                        <li>Чистка бака: Цена договорная</li>
+                        <li>Устранение протечек: Цена договорная</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <p class="section-subtitle">Что говорят наши клиенты о качестве наших услуг</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        Вызывал мастера для ремонта газового котла. Приехал быстро, диагностировал проблему, заменил термостат. Работает теперь как новый. Цена адекватная, мастер профессионал!
+                    </div>
+                    <div class="testimonial-author">Арман Ж.</div>
+                    <div class="testimonial-role">Житель Алматы, Турксибский район</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        Заправляли кондиционер в офисе. Мастер приехал в тот же день, все сделал быстро и качественно. Теперь в офисе приятная прохлада даже в самые жаркие дни. Рекомендую!
+                    </div>
+                    <div class="testimonial-author">Айгуль С.</div>
+                    <div class="testimonial-role">Директор компании, Алмалинский район</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="testimonial-text">
+                        Починили бойлер, который протекал. Мастер нашел причину, заменил прокладки и ТЭН. Работает уже полгода без проблем. Особенно понравилось, что диагностика бесплатная!
+                    </div>
+                    <div class="testimonial-author">Данияр К.</div>
+                    <div class="testimonial-role">Житель Алматы, Бостандыкский район</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Как мы работаем</h2>
+            <p class="section-subtitle">Простая и прозрачная схема сотрудничества</p>
+
+            <div class="process-steps">
+                <div class="step-card">
+                    <i class="fas fa-phone-alt step-icon"></i>
+                    <h3 class="step-title">Заявка</h3>
+                    <p class="step-description">Вы оставляете заявку по телефону или через сайт. Мы уточняем детали и согласовываем время визита.</p>
+                </div>
+
+                <div class="step-card">
+                    <i class="fas fa-user-cog step-icon"></i>
+                    <h3 class="step-title">Выезд мастера</h3>
+                    <p class="step-description">Мастер приезжает к вам в удобное время с необходимым оборудованием и инструментами.</p>
+                </div>
+
+                <div class="step-card">
+                    <i class="fas fa-search step-icon"></i>
+                    <h3 class="step-title">Диагностика</h3>
+                    <p class="step-description">Проводим бесплатную диагностику, определяем причину неисправности и стоимость ремонта.</p>
+                </div>
+
+                <div class="step-card">
+                    <i class="fas fa-tools step-icon"></i>
+                    <h3 class="step-title">Ремонт</h3>
+                    <p class="step-description">Выполняем ремонт или обслуживание оборудования. Согласовываем с вами все действия.</p>
+                </div>
+
+                <div class="step-card">
+                    <i class="fas fa-check-circle step-icon"></i>
+                    <h3 class="step-title">Прием работы</h3>
+                    <p class="step-description">Проверяем работу оборудования вместе с вами. Вы оплачиваете услуги после выполнения.</p>
+                </div>
+
+                <div class="step-card">
+                    <i class="fas fa-shield-alt step-icon"></i>
+                    <h3 class="step-title">Гарантия</h3>
+                    <p class="step-description">Выдаем гарантию на выполненные работы и замененные детали. Консультируем по эксплуатации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Свяжитесь с нами</h2>
+                    <div class="contact-item" onclick="window.open('tel:7 747 267 6591')">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <div>
+                            <strong>Телефон:</strong><br> +7 747 267 6591
+                        </div>
+                    </div>
+                    <div class="contact-item" onclick="window.open('https://api.whatsapp.com/send/?phone=77472676591')">
+                        <i class="fab fa-whatsapp"></i>
+
+                        <strong>WhatsApp:</strong><br> +7 747 267 6591
+                    </div>
+                    <div class="contact-item" onclick="window.open('mailto:diservice05@gmail.com')">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <strong>Email:</strong><br> diservice05@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock contact-icon"></i>
+                        <div>
+                            <strong>Режим работы:</strong><br> Пн-Вс: 8:00 - 22:00<br> Экстренные вызовы: 24/7
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <strong>Обслуживаем:</strong><br> Весь город Алматы и пригороды
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" placeholder="Иван Иванов" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" placeholder="+7 (777) 123-45-67" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="equipment">Тип оборудования</label>
+                            <select id="equipment" required>
+                                <option value="">Выберите тип</option>
+                                <option value="conditioner">Кондиционер</option>
+                                <option value="boiler">Бойлер</option>
+                                <option value="gas_boiler">Газовый котел</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="problem">Описание проблемы</label>
+                            <textarea id="problem" rows="4" placeholder="Опишите, что случилось с оборудованием..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Вызвать мастера
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">DI-Service</div>
+                <div class="footer-links">
+                    <a href="#home">Главная</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#pricing">Цены</a>
+                    <a href="#process">Как мы работаем</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 DI-Service. Все права защищены. Ремонт и обслуживание климатической техники в Алматы.
+            </div>
+        </div>
+    </footer>
+
+    <div class="quick-actions" id="quickActions">
+        <button class="quick-btn whatsapp" data-tooltip="WhatsApp" onclick="window.open('https://api.whatsapp.com/send/?phone=77472676591')">
+        <i class="fab fa-whatsapp"></i> 
+        <button class="quick-btn call" data-tooltip="Позвонить" onclick="window.open('tel:87472676591')">
+        <i class="fas fa-phone-alt"></i>
+    </button>
+        <button class="quick-btn top" data-tooltip="Наверх" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderTrack = document.getElementById('sliderTrack');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.pagination-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slideCounter');
+            const loader = document.getElementById('loader');
+            const slideIndicator = document.getElementById('slideIndicator');
+
+            let currentIndex = 0;
+            let autoSlideInterval;
+
+            const slideTitles = ["Опытные мастера", "Гарантия качества ", "Быстрый выезд", "Честные цены"];
+
+            function goToSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+
+                sliderTrack.style.transform = `translateX(-${index * 20}%)`;
+
+                slideCounter.textContent = `${(index + 1).toString().padStart(2, '0')} / ${slides.length.toString().padStart(2, '0')}`;
+                slideIndicator.textContent = slideTitles[index];
+
+                currentIndex = index;
+
+                clearInterval(autoSlideInterval);
+                loader.style.transition = 'none';
+                loader.style.width = '0';
+
+                setTimeout(() => {
+                    loader.style.transition = 'width 5s linear';
+                    loader.style.width = '100%';
+                }, 10);
+
+                startAutoSlide();
+            }
+
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    if (currentIndex < slides.length - 1) {
+                        nextSlide();
+                    } else {
+                        goToSlide(0);
+                    }
+                }, 5000);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+
+            let touchStartX = 0;
+
+            sliderTrack.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+
+            sliderTrack.addEventListener('touchend', e => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+
+                if (diff > 50) {
+                    nextSlide();
+                } else if (diff < -50) {
+                    prevSlide();
+                }
+            }, false);
+
+            startAutoSlide();
+        });
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+
+            const quickActions = document.getElementById('quickActions');
+            if (window.scrollY > 300) {
+                quickActions.classList.add('visible');
+            } else {
+                quickActions.classList.remove('visible');
+            }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('active') &&
+                !mobileMenu.contains(e.target) &&
+                e.target !== mobileMenuBtn) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '☰';
+                    }
+                }
+            });
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const equipment = document.getElementById('equipment').value;
+            const problem = document.getElementById('problem').value;
+
+            alert(`Спасибо, ${name}! Ваша заявка принята.\nМы свяжемся с вами по номеру ${phone} в ближайшее время.`);
+
+            this.reset();
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .price-card, .testimonial-card, .step-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderForm = document.getElementById('orderForm');
+
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const equipment = document.getElementById('equipment').value;
+                const problem = document.getElementById('problem').value;
+
+                const message = `Новый заказ на ремонт:%0A
+Имя: ${name}%0A
+Телефон: ${phone}%0A
+Тип оборудования: ${equipment}%0A
+Описание проблемы: ${problem}`;
+
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=77472676591&text=${message}&type=phone_number&app_absent=0`;
+
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+    </script>
+</body>
+
+</html>
